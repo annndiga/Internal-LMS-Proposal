@@ -1,14 +1,17 @@
 import React from "react";
-import AppRoutes from "./routes/AppRoutes";
+import { BrowserRouter } from "react-router-dom"; // Keep BrowserRouter here
 import { AuthProvider } from "./context/AuthContext";
+import AppRoutes from "./routes/AppRoutes";
 import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <AuthProvider>
-      <Navbar />
-      <AppRoutes />
-    </AuthProvider>
+    <BrowserRouter> {/* Only one BrowserRouter in the app */}
+      <AuthProvider>
+        <Navbar />
+        <AppRoutes />
+      </AuthProvider>
+    </BrowserRouter>
   );
 };
 

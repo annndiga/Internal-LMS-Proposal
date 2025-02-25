@@ -6,14 +6,14 @@ const RoleBasedRoute = ({ allowedRoles, children }) => {
   const { user } = useContext(AuthContext);
 
   if (!user) {
-    return <Navigate to="/" />; // Redirect to home if not logged in
+    return <Navigate to="/" />;
   }
 
   if (!allowedRoles.includes(user.role)) {
-    return <Navigate to="/unauthorized" />; // Redirect to unauthorized page
+    return <Navigate to="/unauthorized" />;
   }
 
   return children;
 };
 
-export default RoleBasedRoute;
+export default RoleBasedRoute; // Default export
